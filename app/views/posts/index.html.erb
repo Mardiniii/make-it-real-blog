@@ -1,4 +1,23 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Post publicados en el blog</h1>
 
-<%= link_to 'New Post', new_post_path %>
+<table>
+  <thead>
+    <th>Autor</th>
+    <th>Título</th>
+    <th>Contenido</th>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.author %></td>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+
+<%= link_to 'Nuevo Post', new_post_path %>
