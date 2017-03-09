@@ -4,16 +4,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create
-    @post = Post.new(post_params)
-
-    if @post.save
-      redirect_to posts_path
-    else
-      render :new
-    end
-  end
-
   def edit
   end
 
@@ -24,15 +14,26 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def index
     @posts = Post.all
   end
 
-  private
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def post_params
-    params.require(:post).permit(:author, :title, :content)
+  def create
+    @post = Post.new(post_params)
+
+    if @post.save
+      redirect_to posts_path
+    else
+      render :new
+    end
   end
+
+  private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def post_params
+      params.require(:post).permit(:author, :title, :content)
+    end
 end

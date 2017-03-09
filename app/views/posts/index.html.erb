@@ -5,6 +5,7 @@
     <th>Autor</th>
     <th>Título</th>
     <th>Contenido</th>
+    <th>Opciones</th>
   </thead>
 
   <tbody>
@@ -13,11 +14,13 @@
         <td><%= post.author %></td>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
+        <td>
+          <%= link_to 'Ver', post %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 
 </table>
-
 
 <%= link_to 'Nuevo Post', new_post_path %>
