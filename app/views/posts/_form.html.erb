@@ -1,0 +1,20 @@
+<%= form_for @post do |f| %>
+  <div>
+    <%= f.label :author, 'Autor:' %>
+    <%= f.text_field :author %>
+  </div>
+
+  <div>
+    <%= f.label :title, 'Título:' %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content, 'Contenido:' %>
+    <%= f.text_area :content, rows: 10 %>
+  </div>
+
+  <div>
+    <%= f.submit "#{action} Post" %>
+  </div>
+<% end %>

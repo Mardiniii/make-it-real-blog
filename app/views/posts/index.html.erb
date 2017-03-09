@@ -15,7 +15,8 @@
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td>
-          <%= link_to 'Ver', post %>
+          <%= link_to 'Ver', post %> -
+          <%= link_to 'Editar', edit_post_path(post) %>
         </td>
       </tr>
     <% end %>
