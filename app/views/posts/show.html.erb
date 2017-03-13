@@ -1,6 +1,17 @@
-<h1><%= @post.title %></h1>
-<h3><%= @post.author %></h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @post.title %></h1>
+      <h3><%= @post.author %></h3>
 
-<p><%= @post.content %></p>
+      <p><%= @post.content %></p>
 
-<%= link_to 'Ver todos', posts_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <%= link_to 'Ver todos', posts_path, class: 'btn btn-primary' %>          
+    </div>
+  </div>
+
+</div>

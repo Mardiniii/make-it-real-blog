@@ -1,9 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h1>Post publicados en el blog</h1>
+    <h1>Post publicados en el blog</h1>
 
-      <table class="table">
+    <div class="col-md-12 text-right">
+      <%= link_to 'Nuevo Post', new_post_path, class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
         <thead>
           <th>Autor</th>
           <th>Título</th>
@@ -18,17 +24,21 @@
               <td><%= post.title %></td>
               <td><%= post.content %></td>
               <td>
-                <%= link_to 'Ver', post %> -
-                <%= link_to 'Editar', edit_post_path(post) %> -
-                <%= link_to 'Eliminar', post, method: :delete, data: { confirm: 'Estás seguro de eliminar este post?' } %>
+                <%= link_to post do %>
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                <% end %> -
+                <%= link_to edit_post_path(post) do %>
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <% end %> -
+                <%= link_to post, method: :delete, data: { confirm: 'Estás seguro de eliminar este post?' } do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
               </td>
             </tr>
           <% end %>
         </tbody>
 
       </table>
-
-      <%= link_to 'Nuevo Post', new_post_path %>
     </div>
   </div>
 </div>
