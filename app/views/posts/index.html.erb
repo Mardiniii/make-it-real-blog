@@ -1,28 +1,34 @@
-<h1>Post publicados en el blog</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Post publicados en el blog</h1>
 
-<table>
-  <thead>
-    <th>Autor</th>
-    <th>Título</th>
-    <th>Contenido</th>
-    <th>Opciones</th>
-  </thead>
+      <table class="table">
+        <thead>
+          <th>Autor</th>
+          <th>Título</th>
+          <th>Contenido</th>
+          <th>Opciones</th>
+        </thead>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.author %></td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td>
-          <%= link_to 'Ver', post %> -
-          <%= link_to 'Editar', edit_post_path(post) %> -
-          <%= link_to 'Eliminar', post, method: :delete, data: { confirm: 'Estás seguro de eliminar este post?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr>
+              <td><%= post.author %></td>
+              <td><%= post.title %></td>
+              <td><%= post.content %></td>
+              <td>
+                <%= link_to 'Ver', post %> -
+                <%= link_to 'Editar', edit_post_path(post) %> -
+                <%= link_to 'Eliminar', post, method: :delete, data: { confirm: 'Estás seguro de eliminar este post?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
 
-</table>
+      </table>
 
-<%= link_to 'Nuevo Post', new_post_path %>
+      <%= link_to 'Nuevo Post', new_post_path %>
+    </div>
+  </div>
+</div>
