@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <%= render 'layouts/alerts' %>
+
     <%= yield %>
+
+    <script>
+      $(".alert").fadeIn(500).css("opacity","0.85").delay( 6000 ).slideUp( 1000 );
+      $('.alerts').on('click','.alert',function(){ $(this).remove() });
+    </script>
   </body>
 </html>
