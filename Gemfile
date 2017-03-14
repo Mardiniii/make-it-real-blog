@@ -18,6 +18,7 @@ gem 'annotate'
 gem 'hirb'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platform: :mri
