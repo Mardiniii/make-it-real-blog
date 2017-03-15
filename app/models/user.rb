@@ -25,4 +25,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   enum role: [ :admin, :blogger ]
+
+  before_create :set_default_role
+
+  def set_default_role
+    self.role = :blogger
+  end
 end
