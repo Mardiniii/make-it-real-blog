@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :is_blogger?
 
   def create
     @comment = Comment.new(comment_params)
@@ -15,5 +17,12 @@ class CommentsController < ApplicationController
   private
     def comment_params
       params.require(:comment).permit(:author, :post_id, :content)
+    end
+
+    def is_blogger?
+      unless current_user.blogger?
+        flash[:alert] = 'No tienes permisos para acceder a esta ruta'
+        redirect_to root_path
+      end
     end
 end
