@@ -25,13 +25,15 @@
               <td><%= post.content %></td>
               <td>
                 <%= link_to post do %>
-                  <i class="fa fa-eye" aria-hidden="true"></i>
-                <% end %> -
-                <%= link_to edit_post_path(post) do %>
-                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                <% end %> -
-                <%= link_to post, method: :delete, data: { confirm: 'Estás seguro de eliminar este post?' } do %>
-                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <i class="fa fa-eye" aria-hidden="true"></i>
+                <% end %>
+                <% if user_signed_in? && current_user.admin? %>
+                  - <%= link_to edit_post_path(post) do %>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  <% end %> -
+                  <%= link_to post, method: :delete, data: { confirm: 'Estás seguro de eliminar este post?' } do %>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  <% end %>
                 <% end %>
               </td>
             </tr>
