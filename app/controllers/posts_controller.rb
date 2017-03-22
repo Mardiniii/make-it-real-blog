@@ -44,6 +44,12 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
+      @users = User.all
+      
+      @users.each do |user|
+        UserNotifierMailer.new_post_mail(user, @post).deliver_now
+      end
+
       flash[:notice] = 'El post ha sido creado con éxito'
       redirect_to posts_path
     else
