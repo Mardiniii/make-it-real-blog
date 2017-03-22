@@ -8,6 +8,10 @@
   </head>
 
   <body>
+    <p>Hola <%= @user.email.split('@')[0] %></p>
+
     <%= yield %>
+
+    <p>Saludos de parte de todo el equipo de Make It Real.</p>
   </body>
 </html>
