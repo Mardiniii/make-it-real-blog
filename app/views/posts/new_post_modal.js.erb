@@ -1,1 +1,4 @@
-alert('Estoy ejecutando JavaScript con Rails');
+$('<%= j render "new_post_modal" %>').on('hidden.bs.modal', function (e) {
+  $(this).remove();
+  $('.modal-backdrop').remove();
+}).modal();
