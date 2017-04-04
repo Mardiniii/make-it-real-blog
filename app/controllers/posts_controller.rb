@@ -59,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def new_post_modal
-    
+    @post = Post.new
   end
 
   private
