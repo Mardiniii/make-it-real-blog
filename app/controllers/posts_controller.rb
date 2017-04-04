@@ -45,7 +45,7 @@ class PostsController < ApplicationController
 
     if @post.save
       @users = User.all
-      
+
       @users.each do |user|
         UserNotifierMailer.new_post_mail(user, @post).deliver_now
       end
@@ -56,6 +56,10 @@ class PostsController < ApplicationController
       flash[:alert] = 'Algo fallo, el post no ha sido creado con éxito'
       render :new
     end
+  end
+
+  def new_post_modal
+    
   end
 
   private
