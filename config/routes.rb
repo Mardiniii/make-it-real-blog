@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :comments
+
+  get 'new_post_modal' => 'posts#new_post_modal'
 end
