@@ -62,6 +62,13 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def search_by_title
+    posts = Post.all
+    @posts = posts.where("title ILIKE ?", "%#{params[:title]}%")
+
+    render :index
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
