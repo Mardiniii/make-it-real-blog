@@ -64,7 +64,10 @@ class PostsController < ApplicationController
 
   def search_by_title
     posts = Post.all
+    # With Postgress
     @posts = posts.where("title ILIKE ?", "%#{params[:title]}%")
+    # With SQLite3
+    # @posts = posts.where("title LIKE '%#{params[:title]}%'")
 
     render :index
   end
